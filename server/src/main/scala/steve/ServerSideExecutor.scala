@@ -10,8 +10,7 @@ object ServerSideExecutor {
     new Executor[F] {
       private val emptyHash: Hash = Hash(List.empty)
 
-      def build(build: Build): F[Hash] =
-        (build == Build.empty)
+      def build(build: Build): F[Hash] = (build == Build.empty)
         .guard[Option]
         .as(emptyHash)
         .liftTo[F](new Throwable("Unsupported build!"))
