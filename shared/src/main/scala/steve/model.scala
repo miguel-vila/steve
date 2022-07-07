@@ -31,7 +31,6 @@ object Build {
     case Delete(key: String)
   }
 
-
   enum Error extends Exception derives Codec.AsObject, Schema {
     case UnknownBase(hash: Hash)
   }
